@@ -10,7 +10,7 @@ import Icon from 'react-native-vector-icons/FontAwesome';
 import {useNavigation} from '@react-navigation/native';
 import {apiUrl} from '../config';
 
-const ActionButton = ({kdmatkul2020009}) => {
+const ActionButton = ({kdmatkul2010072}) => {
   const [icon_1] = useState(new Animated.Value(40));
   const [icon_2] = useState(new Animated.Value(40));
   const [pop, setPop] = useState(false);
@@ -55,7 +55,7 @@ const ActionButton = ({kdmatkul2020009}) => {
           text: 'ok',
           onPress: () => {
             //lakukan penghapusan data dengan permintaan delete ke api
-            fetch(`${apiUrl}matakuliah/${kdmatkul2020009}`, {
+            fetch(`${apiUrl}matakuliah/${kdmatkul2010072}`, {
               method: 'DELETE',
             })
               .then(Response => {
@@ -84,7 +84,7 @@ const ActionButton = ({kdmatkul2020009}) => {
   };
   const showFormEdit = () => {
     navigation.navigate('FormEditMatakuliah', {
-      kdmatkul2020009: kdmatkul2020009,
+      kdmatkul2010072: kdmatkul2010072,
     });
   };
   return (

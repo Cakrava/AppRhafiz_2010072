@@ -16,7 +16,7 @@ import {useNavigation} from '@react-navigation/native';
 import {apiUrl} from '../config';
 
 export default function FormEdit({route}) {
-  const {kdmatkul2020009} = route.params;
+  const {kdmatkul2010072} = route.params;
   const [loading, setLoading] = useState(null);
   const [error, setError] = useState('');
 
@@ -31,11 +31,11 @@ export default function FormEdit({route}) {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        console.log(`${kdmatkul2020009}`);
-        const response = await fetch(`${apiUrl}matakuliah/${kdmatkul2020009}`);
+        console.log(`${kdmatkul2010072}`);
+        const response = await fetch(`${apiUrl}matakuliah/${kdmatkul2010072}`);
         const json = await response.json();
-        setNamaMatkul(json.namamat2020009);
-        setsKs(json.sks2020009);
+        setNamaMatkul(json.namamat2010072);
+        setsKs(json.sks2010072);
       } catch (error) {
         setError('Tidak dapat memuat data');
       } finally {
@@ -44,7 +44,7 @@ export default function FormEdit({route}) {
     };
 
     fetchData();
-  }, [kdmatkul2020009]);
+  }, [kdmatkul2010072]);
 
   if (loading) {
     return <ActivityIndicator size="large" />;
@@ -58,13 +58,13 @@ export default function FormEdit({route}) {
     setValidationErrors({});
 
     const formData = {
-      namamat2020009: namaMatkul,
-      sks2020009: sKs,
+      namamat2010072: namaMatkul,
+      sks2010072: sKs,
       _method: 'PUT',
     };
 
     try {
-      const response = await fetch(`${apiUrl}matakuliah/${kdmatkul2020009}`, {
+      const response = await fetch(`${apiUrl}matakuliah/${kdmatkul2010072}`, {
         method: 'POST',
         headers: {
           Accept: 'application/json',
@@ -99,7 +99,7 @@ export default function FormEdit({route}) {
           text: 'Ok',
           onPress: () =>
             navigation.navigate('DetailMatkul', {
-              kdmatkul2020009: kdmatkul2020009,
+              kdmatkul2010072: kdmatkul2010072,
             }),
         },
       ]);
@@ -116,7 +116,7 @@ export default function FormEdit({route}) {
       contentContainerStyle={styles.contentContainer}>
       <Input
         placeholder="Kode"
-        value={kdmatkul2020009}
+        value={kdmatkul2010072}
         disabled={true}
         placeholderTextColor="#888"
         inputContainerStyle={styles.inputContainer}
@@ -132,7 +132,7 @@ export default function FormEdit({route}) {
         inputContainerStyle={styles.inputContainer}
         inputStyle={styles.inputText}
         leftIcon={<Icon name="book" size={24} color="black" />}
-        errorMessage={validationErrors.namamat2020009}
+        errorMessage={validationErrors.namamat2010072}
       />
       <Input
         placeholder="SKS"
@@ -142,7 +142,7 @@ export default function FormEdit({route}) {
         placeholderTextColor="#888"
         inputContainerStyle={styles.inputContainer}
         inputStyle={styles.inputText}
-        errorMessage={validationErrors.sks2020009}
+        errorMessage={validationErrors.sks2010072}
         keyboardType="number-pad"
       />
 

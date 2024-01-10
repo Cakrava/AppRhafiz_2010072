@@ -13,15 +13,15 @@ import ActionButton from './ActionButton';
 import {useNavigation} from '@react-navigation/native';
 
 const DetailMahasiswa = ({route}) => {
-  const {nim_2020009} = route.params;
-  const [mahasiswa_2020009, setMahasiswa] = useState(null);
+  const {nim_2010072} = route.params;
+  const [mahasiswa_2010072, setMahasiswa] = useState(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState('');
   const navigation = useNavigation();
   const goToPageFormUpload = () => {
     navigation.navigate('FormUpload', {
-      nim_2020009: nim_2020009,
-      foto: mahasiswa_2020009.foto_thumb,
+      nim_2010072: nim_2010072,
+      foto: mahasiswa_2010072.foto_thumb,
     });
   };
 
@@ -29,7 +29,7 @@ const DetailMahasiswa = ({route}) => {
     const unsubscribe = navigation.addListener('focus', () => {
       const fetchData = async () => {
         try {
-          const response = await fetch(`${apiUrl}mahasiswa/${nim_2020009}`);
+          const response = await fetch(`${apiUrl}mahasiswa/${nim_2010072}`);
           const json = await response.json();
           setMahasiswa(json);
         } catch (error) {
@@ -41,7 +41,7 @@ const DetailMahasiswa = ({route}) => {
       fetchData();
     });
     return unsubscribe;
-  }, [navigation, nim_2020009]);
+  }, [navigation, nim_2010072]);
 
   if (loading) {
     return <ActivityIndicator size="large" />;
@@ -52,49 +52,49 @@ const DetailMahasiswa = ({route}) => {
   return (
     <ScrollView>
       <View style={styles.container}>
-        {mahasiswa_2020009 && (
+        {mahasiswa_2010072 && (
           <Card>
             <Avatar
               size="xlarge"
               rounded
               source={
-                mahasiswa_2020009.foto
-                  ? {uri: `${apiImage}${mahasiswa_2020009.foto_thumb}`}
+                mahasiswa_2010072.foto
+                  ? {uri: `${apiImage}${mahasiswa_2010072.foto_thumb}`}
                   : defaultAvatar
               }
               containerStyle={styles.avatarContainer}
               onPress={goToPageFormUpload}
             />
             <Card.Title style={styles.title}>
-              {mahasiswa_2020009.nim_2020009}
+              {mahasiswa_2010072.nim_2010072}
             </Card.Title>
             <Card.Divider />
             <Text style={styles.detail}>Nama:</Text>
             <Text style={styles.detailData}>
-              {mahasiswa_2020009.nama_lengkap_2020009}
+              {mahasiswa_2010072.nama_lengkap_2010072}
             </Text>
             <Text style={styles.detail}>Jenkel:</Text>
             <Text style={styles.detailData}>
-              {mahasiswa_2020009.jenis_kelamin_2020009 == 'L'
+              {mahasiswa_2010072.jenis_kelamin_2010072 == 'L'
                 ? 'Laki-Laki'
                 : 'Perempuan'}
             </Text>
             <Text style={styles.detail}>Tanggal/Tgl.Lahir:</Text>
             <Text style={styles.detailData}>
-              {mahasiswa_2020009.tmp_lahir_2020009} /{' '}
-              {mahasiswa_2020009.tgl_lahir_2020009}
+              {mahasiswa_2010072.tmp_lahir_2010072} /{' '}
+              {mahasiswa_2010072.tgl_lahir_2010072}
             </Text>
             <Text style={styles.detail}>Alamat:</Text>
             <Text style={styles.detailData}>
-              {mahasiswa_2020009.alamat_2020009}
+              {mahasiswa_2010072.alamat_2010072}
             </Text>
             <Text style={styles.detail}>Telp/Hp:</Text>
             <Text style={styles.detailData}>
-              {mahasiswa_2020009.notelp_2020009}
+              {mahasiswa_2010072.notelp_2010072}
             </Text>
           </Card>
         )}
-        <ActionButton nim_2020009={mahasiswa_2020009.nim_2020009} />
+        <ActionButton nim_2010072={mahasiswa_2010072.nim_2010072} />
       </View>
     </ScrollView>
   );

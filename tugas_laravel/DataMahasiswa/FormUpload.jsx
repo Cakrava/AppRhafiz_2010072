@@ -13,7 +13,7 @@ import defaultAvatar from '../img/avatar11.png';
 import {apiImage, apiUrl} from '../config';
 
 export default function FormUpload({route, navigation}) {
-  const {nim_2020009} = route.params;
+  const {nim_2010072} = route.params;
   const {foto} = route.params;
 
   const [Pic, setPic] = useState(null);
@@ -125,7 +125,7 @@ export default function FormUpload({route, navigation}) {
     });
 
     let response = await fetch(
-      `${apiUrl}mahasiswa/uploadImage/${nim_2020009}`,
+      `${apiUrl}mahasiswa/uploadImage/${nim_2010072}`,
       {
         method: 'POST',
         body: formData,

@@ -9,7 +9,7 @@ import {
 import Icon from 'react-native-vector-icons/FontAwesome';
 import {useNavigation} from '@react-navigation/native';
 import {apiUrl} from '../config';
-const ActionButton = ({nim_2020009}) => {
+const ActionButton = ({nim_2010072}) => {
   const [icon_1] = useState(new Animated.Value(40));
   const [icon_2] = useState(new Animated.Value(40));
   const [pop, setPop] = useState(false);
@@ -56,7 +56,7 @@ const ActionButton = ({nim_2020009}) => {
             try {
               // Lakukan penghapusan data dosen dengan permintaan DELETE ke API
               const response = await fetch(
-                `${apiUrl}mahasiswa/${nim_2020009}`,
+                `${apiUrl}mahasiswa/${nim_2010072}`,
                 {
                   method: 'DELETE',
                 },
@@ -87,7 +87,7 @@ const ActionButton = ({nim_2020009}) => {
   };
 
   const showFormEdit = () => {
-    navigation.navigate('FormEditMahasiswa', {nim_2020009: nim_2020009});
+    navigation.navigate('FormEditMahasiswa', {nim_2010072: nim_2010072});
   };
   return (
     <View

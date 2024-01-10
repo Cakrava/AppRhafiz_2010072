@@ -18,9 +18,9 @@ const FormTambah = () => {
     setIsSaving(true);
     setValidationErrors({});
     const formData = {
-      kdmatkul2020009: kd,
-      namamat2020009: namaMatkul,
-      sks2020009: sks,
+      kdmatkul2010072: kd,
+      namamat2010072: namaMatkul,
+      sks2010072: sks,
     };
 
     fetch(`${apiUrl}matakuliah`, {
@@ -84,7 +84,7 @@ const FormTambah = () => {
         inputContainerStyle={styles.inputContainer}
         inputStyle={styles.inputText}
         leftIcon={<Icon name="folder" size={24} color="#007BFF" />}
-        errorMessage={validationErrors.kdmatkul2020009}
+        errorMessage={validationErrors.kdmatkul2010072}
       />
 
       <Input
@@ -95,7 +95,7 @@ const FormTambah = () => {
         inputContainerStyle={styles.inputContainer}
         inputStyle={styles.inputText}
         leftIcon={<Icon name="bookmark" size={24} color="#007BFF" />}
-        errorMessage={validationErrors.namamat2020009}
+        errorMessage={validationErrors.namamat2010072}
       />
 
       <Input
@@ -106,7 +106,7 @@ const FormTambah = () => {
         placeholderTextColor="#ccc"
         inputContainerStyle={styles.inputContainer}
         inputStyle={styles.inputText}
-        errorMessage={validationErrors.sks2020009}
+        errorMessage={validationErrors.sks2010072}
       />
 
       <Button

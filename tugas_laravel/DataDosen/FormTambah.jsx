@@ -25,13 +25,13 @@ const FormTambah = () => {
     setIsSaving(true);
     setValidationErrors({});
     const formData = {
-      nidn2020009: nidn,
-      namalengkap2020009: namaLengkap,
-      jenkel2020009: jenisKelamin,
-      tmp_lahir2020009: tempatLahir,
-      tgl_lahir2020009: tanggalLahir.toISOString().split('T')[0],
-      alamat2020009: alamat,
-      notelp2020009: noTelp,
+      nidn2010072: nidn,
+      namalengkap2010072: namaLengkap,
+      jenkel2010072: jenisKelamin,
+      tmp_lahir2010072: tempatLahir,
+      tgl_lahir2010072: tanggalLahir.toISOString().split('T')[0],
+      alamat2010072: alamat,
+      notelp2010072: noTelp,
     };
 
     fetch(`${apiUrl}dosen`, {
@@ -101,7 +101,7 @@ const FormTambah = () => {
         inputContainerStyle={styles.inputContainer}
         inputStyle={styles.inputText}
         leftIcon={<Icon name="user-circle" size={24} color="#007BFF" />}
-        errorMessage={validationErrors.nidn2020009}
+        errorMessage={validationErrors.nidn2010072}
       />
 
       <Input
@@ -112,7 +112,7 @@ const FormTambah = () => {
         inputContainerStyle={styles.inputContainer}
         inputStyle={styles.inputText}
         leftIcon={<Icon name="user" size={24} color="#007BFF" />}
-        errorMessage={validationErrors.namalengkap2020009}
+        errorMessage={validationErrors.namalengkap2010072}
       />
       <View style={styles.pickerContainer}>
         <Picker
@@ -133,7 +133,7 @@ const FormTambah = () => {
         placeholderTextColor="#ccc"
         inputContainerStyle={styles.inputContainer}
         inputStyle={styles.inputText}
-        errorMessage={validationErrors.tmp_lahir2020009}
+        errorMessage={validationErrors.tmp_lahir2010072}
       />
 
       <View style={styles.dateContainer}>
@@ -164,7 +164,7 @@ const FormTambah = () => {
         placeholderTextColor="#ccc"
         inputContainerStyle={styles.inputContainer}
         inputStyle={styles.inputText}
-        errorMessage={validationErrors.alamat2020009}
+        errorMessage={validationErrors.alamat2010072}
       />
 
       <Input
@@ -175,7 +175,7 @@ const FormTambah = () => {
         placeholderTextColor="#ccc"
         inputContainerStyle={styles.inputContainer}
         inputStyle={styles.inputText}
-        errorMessage={validationErrors.notelp2020009}
+        errorMessage={validationErrors.notelp2010072}
         keyboardType="number-pad"
       />
 

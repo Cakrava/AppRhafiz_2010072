@@ -16,7 +16,7 @@ import {useNavigation} from '@react-navigation/native';
 import {apiUrl} from '../config';
 
 export default function FormEdit({route}) {
-  const {nidn2020009} = route.params;
+  const {nidn2010072} = route.params;
   const [loading, setLoading] = useState(null);
   const [error, setError] = useState('');
 
@@ -24,7 +24,7 @@ export default function FormEdit({route}) {
   const [jenisKelamin, setJenisKelamin] = useState('L');
   const [tempatLahir, setTempatLahir] = useState('');
   const [tanggalLahir, setTanggalLahir] = useState(new Date());
-  const [alamat_2020009, setAlamat] = useState('');
+  const [alamat_2010072, setAlamat] = useState('');
   const [noTelp, setNoTelp] = useState('');
   const [datePickerVisible, setDatePickerVisible] = useState(false);
 
@@ -44,15 +44,15 @@ export default function FormEdit({route}) {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        console.log(`${nidn2020009}`);
-        const response = await fetch(`${apiUrl}dosen/${nidn2020009}`);
+        console.log(`${nidn2010072}`);
+        const response = await fetch(`${apiUrl}dosen/${nidn2010072}`);
         const json = await response.json();
-        setNamaLengkap(json.namalengkap2020009);
-        setJenisKelamin(json.jenkel2020009);
-        setTempatLahir(json.tmp_lahir2020009);
-        setTanggalLahir(new Date(json.tgl_lahir2020009));
-        setAlamat(json.alamat2020009);
-        setNoTelp(json.notelp2020009);
+        setNamaLengkap(json.namalengkap2010072);
+        setJenisKelamin(json.jenkel2010072);
+        setTempatLahir(json.tmp_lahir2010072);
+        setTanggalLahir(new Date(json.tgl_lahir2010072));
+        setAlamat(json.alamat2010072);
+        setNoTelp(json.notelp2010072);
       } catch (error) {
         setError('Tidak dapat memuat data');
       } finally {
@@ -61,7 +61,7 @@ export default function FormEdit({route}) {
     };
 
     fetchData();
-  }, [nidn2020009]);
+  }, [nidn2010072]);
 
   if (loading) {
     return <ActivityIndicator size="large" />;
@@ -75,17 +75,17 @@ export default function FormEdit({route}) {
     setValidationErrors({});
 
     const formData = {
-      namalengkap2020009: namaLengkap,
-      jenkel2020009: jenisKelamin,
-      tmp_lahir2020009: tempatLahir,
-      tgl_lahir2020009: tanggalLahir.toISOString().split('T')[0], // Format to YYYY-MM-DD
-      alamat2020009: alamat_2020009,
-      notelp2020009: noTelp,
+      namalengkap2010072: namaLengkap,
+      jenkel2010072: jenisKelamin,
+      tmp_lahir2010072: tempatLahir,
+      tgl_lahir2010072: tanggalLahir.toISOString().split('T')[0], // Format to YYYY-MM-DD
+      alamat2010072: alamat_2010072,
+      notelp2010072: noTelp,
       _method: 'PUT',
     };
 
     try {
-      const response = await fetch(`${apiUrl}dosen/${nidn2020009}`, {
+      const response = await fetch(`${apiUrl}dosen/${nidn2010072}`, {
         method: 'POST',
         headers: {
           Accept: 'application/json',
@@ -119,7 +119,7 @@ export default function FormEdit({route}) {
         {
           text: 'Ok',
           onPress: () =>
-            navigation.navigate('DetailDosen', {nidn2020009: nidn2020009}),
+            navigation.navigate('DetailDosen', {nidn2010072: nidn2010072}),
         },
       ]);
     } catch (error) {
@@ -135,7 +135,7 @@ export default function FormEdit({route}) {
       contentContainerStyle={styles.contentContainer}>
       <Input
         placeholder="NIDN"
-        value={nidn2020009}
+        value={nidn2010072}
         disabled={true}
         placeholderTextColor="#888"
         inputContainerStyle={styles.inputContainer}
@@ -151,7 +151,7 @@ export default function FormEdit({route}) {
         inputContainerStyle={styles.inputContainer}
         inputStyle={styles.inputText}
         leftIcon={<Icon name="user" size={24} color="black" />}
-        errorMessage={validationErrors.namalengkap2020009}
+        errorMessage={validationErrors.namalengkap2010072}
       />
       <View style={styles.pickerContainer}>
         <Picker
@@ -172,7 +172,7 @@ export default function FormEdit({route}) {
         placeholderTextColor="#888"
         inputContainerStyle={styles.inputContainer}
         inputStyle={styles.inputText}
-        errorMessage={validationErrors.tmp_lahir2020009}
+        errorMessage={validationErrors.tmp_lahir2010072}
       />
 
       <View style={styles.dateContainer}>
@@ -196,13 +196,13 @@ export default function FormEdit({route}) {
 
       <Input
         placeholder="Alamat"
-        value={alamat_2020009}
+        value={alamat_2010072}
         onChangeText={setAlamat}
         leftIcon={<Icon name="map-marker-alt" size={24} color="black" />}
         placeholderTextColor="#888"
         inputContainerStyle={styles.inputContainer}
         inputStyle={styles.inputText}
-        errorMessage={validationErrors.alamat2020009}
+        errorMessage={validationErrors.alamat2010072}
       />
 
       <Input
@@ -213,7 +213,7 @@ export default function FormEdit({route}) {
         placeholderTextColor="#888"
         inputContainerStyle={styles.inputContainer}
         inputStyle={styles.inputText}
-        errorMessage={validationErrors.notelp2020009}
+        errorMessage={validationErrors.notelp2010072}
         keyboardType="number-pad"
       />
 

@@ -11,7 +11,7 @@ export default function LatFlatlist1() {
     setTimeout(() => {
       const newData = [
         ...data,
-        {nim: '2020009', nama: 'Bagus Maulana'},
+        {nim: '2010072', nama: 'Bagus Maulana'},
         {nim: '2010033', nama: 'Cymadani'},
         {nim: '2110035', nama: 'Congek'},
       ];

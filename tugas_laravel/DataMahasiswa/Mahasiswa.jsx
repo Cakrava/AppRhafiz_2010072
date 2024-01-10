@@ -85,12 +85,12 @@ export default function Mahasiswa() {
 
   const renderItemMahasiswa = ({item}) => {
     const showDetailMahasiswa = () => {
-      navigation.navigate('DetailMahasiswa', {nim_2020009: item.nim_2020009});
+      navigation.navigate('DetailMahasiswa', {nim_2010072: item.nim_2010072});
     };
     return (
       <TouchableOpacity style={styles.item} onPress={showDetailMahasiswa}>
-        <Text style={styles.titleNim}>{item.nim_2020009}</Text>
-        <Text style={styles.text}>{item.nama_lengkap_2020009}</Text>
+        <Text style={styles.titleNim}>{item.nim_2010072}</Text>
+        <Text style={styles.text}>{item.nama_lengkap_2010072}</Text>
         <TouchableOpacity
           style={styles.detailButton}
           onPress={showDetailMahasiswa}>
@@ -120,7 +120,7 @@ export default function Mahasiswa() {
       <FlatList
         data={dataMahasiswa}
         renderItem={renderItemMahasiswa}
-        keyExtractor={item => item.nim_2020009}
+        keyExtractor={item => item.nim_2010072}
         extraData={loading || error}
         onEndReached={() => {
           if (!loading && page < lastPage) {

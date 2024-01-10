@@ -19,7 +19,7 @@ const HomeScreen = () => {
           style={styles.profileImage}
         />
         <Text style={styles.profileName}>Bagus Maulana</Text>
-        <Text style={styles.profileBio}>2020009</Text>
+        <Text style={styles.profileBio}>2010072</Text>
       </View>
     </View>
   );

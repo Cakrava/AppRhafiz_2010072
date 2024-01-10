@@ -10,7 +10,7 @@ import Icon from 'react-native-vector-icons/FontAwesome';
 import {useNavigation} from '@react-navigation/native';
 import {apiUrl} from '../config';
 
-const ActionButton = ({nidn2020009}) => {
+const ActionButton = ({nidn2010072}) => {
   const [icon_1] = useState(new Animated.Value(40));
   const [icon_2] = useState(new Animated.Value(40));
   const [pop, setPop] = useState(false);
@@ -56,7 +56,7 @@ const ActionButton = ({nidn2020009}) => {
           text: 'ok',
           onPress: () => {
             //lakukan penghapusan data dengan permintaan delete ke api
-            fetch(`${apiUrl}dosen/${nidn2020009}`, {
+            fetch(`${apiUrl}dosen/${nidn2010072}`, {
               method: 'DELETE',
             })
               .then(Response => {
@@ -84,7 +84,7 @@ const ActionButton = ({nidn2020009}) => {
     );
   };
   const showFormEdit = () => {
-    navigation.navigate('FormEditDosen', {nidn2020009: nidn2020009});
+    navigation.navigate('FormEditDosen', {nidn2010072: nidn2010072});
   };
   return (
     <View

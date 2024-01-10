@@ -81,13 +81,13 @@ export default function Matkul() {
   const renderItemMatkul = ({item}) => {
     const showDetailMatkul = () => {
       navigation.navigate('DetailMatkul', {
-        kdmatkul2020009: item.kdmatkul2020009,
+        kdmatkul2010072: item.kdmatkul2010072,
       });
     };
     return (
       <View style={styles.item}>
-        <Text style={styles.titleNim}>{item.kdmatkul2020009}</Text>
-        <Text style={styles.text}>{item.namamat2020009}</Text>
+        <Text style={styles.titleNim}>{item.kdmatkul2010072}</Text>
+        <Text style={styles.text}>{item.namamat2010072}</Text>
         <TouchableOpacity
           style={styles.detailButton}
           onPress={showDetailMatkul}>
@@ -117,7 +117,7 @@ export default function Matkul() {
       <FlatList
         data={dataMatkul}
         renderItem={renderItemMatkul}
-        keyExtractor={item => item.kdmatkul2020009}
+        keyExtractor={item => item.kdmatkul2010072}
         extraData={loading || error}
         onEndReached={() => {
           if (!loading && page < lastPage) {

@@ -77,12 +77,12 @@ export default function Dosen() {
 
   const renderItemDosen = ({item}) => {
     const showDetailDosen = () => {
-      navigation.navigate('DetailDosen', {nidn2020009: item.nidn2020009});
+      navigation.navigate('DetailDosen', {nidn2010072: item.nidn2010072});
     };
     return (
       <TouchableOpacity style={styles.item} onPress={showDetailDosen}>
-        <Text style={styles.titleNidn}>{item.nidn2020009}</Text>
-        <Text style={styles.text}>{item.namalengkap2020009}</Text>
+        <Text style={styles.titleNidn}>{item.nidn2010072}</Text>
+        <Text style={styles.text}>{item.namalengkap2010072}</Text>
         <TouchableOpacity style={styles.detailButton} onPress={showDetailDosen}>
           <Icon name="arrow-redo" size={24} color="#000" />
         </TouchableOpacity>
@@ -110,7 +110,7 @@ export default function Dosen() {
       <FlatList
         data={dataDosen}
         renderItem={renderItemDosen}
-        keyExtractor={item => item.nidn2020009}
+        keyExtractor={item => item.nidn2010072}
         extraData={loading || error}
         onEndReached={() => {
           if (!loading && page < lastPage) {

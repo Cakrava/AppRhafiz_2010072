@@ -13,16 +13,16 @@ import ActionButton from './ActionButton';
 import {useNavigation} from '@react-navigation/native';
 
 const DetailMatakuliah = ({route}) => {
-  const {kdmatkul2020009} = route.params;
-  const [matakuliah_2020009, setMatakuliah] = useState(null);
+  const {kdmatkul2010072} = route.params;
+  const [matakuliah_2010072, setMatakuliah] = useState(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState('');
   const navigation = useNavigation();
 
   const goToPageFormUpload = () => {
     navigation.navigate('FormUpload', {
-      kdmatkul2020009: kdmatkul2020009,
-      foto: matakuliah_2020009.foto_thumb,
+      kdmatkul2010072: kdmatkul2010072,
+      foto: matakuliah_2010072.foto_thumb,
     });
   };
 
@@ -31,7 +31,7 @@ const DetailMatakuliah = ({route}) => {
       const fetchData = async () => {
         try {
           const response = await fetch(
-            `${apiUrl}matakuliah/${kdmatkul2020009}`,
+            `${apiUrl}matakuliah/${kdmatkul2010072}`,
           );
           const json = await response.json();
           setMatakuliah(json);
@@ -44,7 +44,7 @@ const DetailMatakuliah = ({route}) => {
       fetchData();
     });
     return unsubscribe;
-  }, [navigation, kdmatkul2020009]);
+  }, [navigation, kdmatkul2010072]);
 
   if (loading) {
     return <ActivityIndicator size="large" />;
@@ -55,34 +55,34 @@ const DetailMatakuliah = ({route}) => {
   return (
     <ScrollView>
       <View style={styles.container}>
-        {matakuliah_2020009 && (
+        {matakuliah_2010072 && (
           <Card>
             <Avatar
               size="xlarge"
               rounded
               source={
-                matakuliah_2020009.foto
-                  ? {uri: `${apiImage}${matakuliah_2020009.foto_thumb}`}
+                matakuliah_2010072.foto
+                  ? {uri: `${apiImage}${matakuliah_2010072.foto_thumb}`}
                   : defaultAvatar
               }
               containerStyle={styles.avatarContainer}
               onPress={goToPageFormUpload}
             />
             <Card.Title style={styles.title}>
-              {matakuliah_2020009.kdmatkul2020009}
+              {matakuliah_2010072.kdmatkul2010072}
             </Card.Title>
             <Card.Divider />
             <Text style={styles.detail}>Nama Matakuliah:</Text>
             <Text style={styles.detailData}>
-              {matakuliah_2020009.namamat2020009}
+              {matakuliah_2010072.namamat2010072}
             </Text>
             <Text style={styles.detail}>SKS:</Text>
             <Text style={styles.detailData}>
-              {matakuliah_2020009.sks2020009}
+              {matakuliah_2010072.sks2010072}
             </Text>
           </Card>
         )}
-        <ActionButton kdmatkul2020009={matakuliah_2020009.kdmatkul2020009} />
+        <ActionButton kdmatkul2010072={matakuliah_2010072.kdmatkul2010072} />
       </View>
     </ScrollView>
   );

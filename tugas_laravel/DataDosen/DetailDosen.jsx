@@ -13,16 +13,16 @@ import ActionButton from './ActionButton';
 import {useNavigation} from '@react-navigation/native';
 
 const DetailMahasiswa = ({route}) => {
-  const {nidn2020009} = route.params;
-  const [dosen2020009, setDosen] = useState(null);
+  const {nidn2010072} = route.params;
+  const [dosen2010072, setDosen] = useState(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState('');
   const navigation = useNavigation();
 
   const goToPageFormUpload = () => {
     navigation.navigate('FormUpload', {
-      nidn2020009: nidn2020009,
-      foto: dosen2020009.foto_thumb,
+      nidn2010072: nidn2010072,
+      foto: dosen2010072.foto_thumb,
     });
   };
 
@@ -30,7 +30,7 @@ const DetailMahasiswa = ({route}) => {
     const unsubscribe = navigation.addListener('focus', () => {
       const fetchData = async () => {
         try {
-          const response = await fetch(`${apiUrl}dosen/${nidn2020009}`);
+          const response = await fetch(`${apiUrl}dosen/${nidn2010072}`);
           const json = await response.json();
           setDosen(json);
         } catch (error) {
@@ -42,7 +42,7 @@ const DetailMahasiswa = ({route}) => {
       fetchData();
     });
     return unsubscribe;
-  }, [navigation, nidn2020009]);
+  }, [navigation, nidn2010072]);
 
   if (loading) {
     return <ActivityIndicator size="large" />;
@@ -53,42 +53,42 @@ const DetailMahasiswa = ({route}) => {
   return (
     <ScrollView>
       <View style={styles.container}>
-        {dosen2020009 && (
+        {dosen2010072 && (
           <Card>
             <Avatar
               size="xlarge"
               rounded
               source={
-                dosen2020009.foto
-                  ? {uri: `${apiImage}${dosen2020009.foto_thumb}`}
+                dosen2010072.foto
+                  ? {uri: `${apiImage}${dosen2010072.foto_thumb}`}
                   : defaultAvatar
               }
               containerStyle={styles.avatarContainer}
               onPress={goToPageFormUpload}
             />
             <Card.Title style={styles.title}>
-              {dosen2020009.nidn2020009}
+              {dosen2010072.nidn2010072}
             </Card.Title>
             <Card.Divider />
             <Text style={styles.detail}>Nama:</Text>
             <Text style={styles.detailData}>
-              {dosen2020009.namalengkap2020009}
+              {dosen2010072.namalengkap2010072}
             </Text>
             <Text style={styles.detail}>Jenkel:</Text>
             <Text style={styles.detailData}>
-              {dosen2020009.jenkel2020009 == 'L' ? 'Laki-Laki' : 'Perempuan'}
+              {dosen2010072.jenkel2010072 == 'L' ? 'Laki-Laki' : 'Perempuan'}
             </Text>
             <Text style={styles.detail}>Tanggal/Tgl.Lahir:</Text>
             <Text style={styles.detailData}>
-              {dosen2020009.tmp_lahir2020009} / {dosen2020009.tgl_lahir2020009}
+              {dosen2010072.tmp_lahir2010072} / {dosen2010072.tgl_lahir2010072}
             </Text>
             <Text style={styles.detail}>Alamat:</Text>
-            <Text style={styles.detailData}>{dosen2020009.alamat2020009}</Text>
+            <Text style={styles.detailData}>{dosen2010072.alamat2010072}</Text>
             <Text style={styles.detail}>Telp/Hp:</Text>
-            <Text style={styles.detailData}>{dosen2020009.notelp2020009}</Text>
+            <Text style={styles.detailData}>{dosen2010072.notelp2010072}</Text>
           </Card>
         )}
-        <ActionButton nidn2020009={dosen2020009.nidn2020009} />
+        <ActionButton nidn2010072={dosen2010072.nidn2010072} />
       </View>
     </ScrollView>
   );
