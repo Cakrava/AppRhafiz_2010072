@@ -8,7 +8,7 @@ export default function ProfilScreen() {
           source={require('./img/avatar16.png')} // Gantilah URL dengan URL gambar profil Anda
           style={styles.profileImage}
         />
-        <Text style={styles.profileName}>My Name Is Bagus</Text>
+        <Text style={styles.profileName}>My Name Is Rhafiz</Text>
         <Text style={styles.profileBio}>Hello Guys</Text>
       </View>
       <View style={styles.profileStats}>

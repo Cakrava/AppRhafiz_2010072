@@ -18,7 +18,7 @@ const HomeScreen = () => {
           source={require('./img/bmln3.jpg')} // Gantilah URL dengan URL gambar profil Anda
           style={styles.profileImage}
         />
-        <Text style={styles.profileName}>Bagus Maulana</Text>
+        <Text style={styles.profileName}>Muhammad Rhafiz Arivi</Text>
         <Text style={styles.profileBio}>2010072</Text>
       </View>
     </View>
